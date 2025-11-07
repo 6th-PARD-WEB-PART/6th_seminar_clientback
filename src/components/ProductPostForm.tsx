@@ -26,7 +26,7 @@ export default function ProductPostForm() {
   };
 
   return (
-    <div className="m-6 p-4 border border-zinc-200 rounded-lg bg-white shadow-md">
+    <div className="mt-6 p-4 border border-zinc-200 rounded-lg bg-white shadow-md">
       <h2 className="text-lg font-semibold mb-2">새 상품 등록</h2>
       <div className="flex flex-row gap-2">
         <input
