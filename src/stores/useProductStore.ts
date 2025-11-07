@@ -18,8 +18,8 @@ export const useProductStore = create<GuideState>((set) => ({
     {id: "1", n: "셔츠", p: 20000, q: 10, c: "red", createdAt: new Date(), modifiedAt: new Date(), s: true},
     {id: "2", n: "셔츠", p: 20000, q: 3, c: "green", createdAt: new Date(), modifiedAt: new Date(), s: true},
     {id: "3", n: "셔츠", p: 20000, q: 0, c: "blue", createdAt: new Date(), modifiedAt: new Date(), s: false},
-    {id: "4", n: "필통", p: 5000, q: 10, c: "green", createdAt: new Date(), modifiedAt: new Date(), s: true},
-    {id: "5", n: "청바지", p: 30000, q: 10, c: "blue", createdAt: new Date(), modifiedAt: new Date(), s: true},
+    {id: "4", n: "필통", p: 5000, q: 3, c: "green", createdAt: new Date(), modifiedAt: new Date(), s: true},
+    {id: "5", n: "청바지", p: 30000, q: 0, c: "blue", createdAt: new Date(), modifiedAt: new Date(), s: false},
   ],
 
   setProducts: (data) => set({ products: data }),
