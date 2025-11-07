@@ -1,25 +1,18 @@
+import useProductStore from "@/stores/useProductStore";
 import { SelectedProduct } from "@/types/product";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-
-// TODO: 임시 데이터 내용 지우기
-// 임시 데이터 (실제로는 위의 API 응답 사용)
-const data = {
-  n: "노트북",
-  p: 1200000,
-  q: 5,
-  c: "blue",
-  createdAt: new Date(),
-  modifiedAt: new Date(),
-  s: true,
-};
 
 export default function DetailPage() {
   const router = useRouter();
   const { id } = router.query;
 
   const [product, setProduct] = useState<SelectedProduct | null>(null);
+
+  // TODO: 임시 데이터 지우기
+  const { products } = useProductStore();
+  const data = products[0]; // 임시 데이터용 변수 'data'
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -31,7 +24,6 @@ export default function DetailPage() {
       // TODO: response 데이터 product 상태에 저장하기
 
       // CHALLENGE TODO: Recently Selected Product 전역 상태 갱신하기
-
     };
 
     fetchProduct();
@@ -39,9 +31,7 @@ export default function DetailPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-50">
-      <h1 className="text-2xl font-bold mb-4">
-        상품 상세 페이지 &lt;상세 GET&gt;
-      </h1>
+      <h1 className="text-2xl font-bold mb-4">상품 상세 페이지</h1>
 
       <div className="w-40 flex flex-col items-start justify-center m-10 text-xl">
         <p className="p-2">
