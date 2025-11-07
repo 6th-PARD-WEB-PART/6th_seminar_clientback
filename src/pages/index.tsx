@@ -49,7 +49,7 @@ export default function Home() {
       </h1>
 
       <p className="text-lg font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-fuchsia-600 m-2">
-        이 곳은 이상한 PARD의 회사입니다.
+        이곳은 이상한 PARD의 회사입니다.
       </p>
       <p className="text-base italic text-black mb-1">
         모든 상품은 색상 기준으로 관리되며,{" "}
