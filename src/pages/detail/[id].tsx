@@ -26,7 +26,7 @@ export default function DetailPage() {
     if (!id) return;
 
     const fetchProduct = async () => {
-      // TODO: 상품 ID를 가지고 상품 상세 GET API 호출하기
+      // TODO: 상품 ID를 가지고 상품 상세 GET API 함수 호출하기 (lib/productApi.ts 내부에 구현된 함수 활용)
 
       // TODO: response 데이터 product 상태에 저장하기
 

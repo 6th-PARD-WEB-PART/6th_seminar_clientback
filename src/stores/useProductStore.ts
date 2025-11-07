@@ -1,4 +1,4 @@
-import { ColorCount, Product } from "@/types/product";
+import { Product } from "@/types/product";
 import { create } from "zustand";
 
 // CHALLENGE TODO: 가장 최근에 상세 페이지를 방문한 상품의 정보를 저장하는 상태 만들기 (Recently Selected Product)
@@ -7,11 +7,9 @@ import { create } from "zustand";
 export type GuideState = {
   // 상태 (State)
   products: Product[];
-  colorCounts: ColorCount[];
 
   // 액션 (Actions)
   setProducts: (data: Product[]) => void;
-  setColorCounts: (data: ColorCount[]) => void;
 };
 
 export const useProductStore = create<GuideState>((set) => ({
@@ -23,10 +21,8 @@ export const useProductStore = create<GuideState>((set) => ({
     {id: "4", n: "필통", p: 5000, q: 10, c: "green", createdAt: new Date(), modifiedAt: new Date(), s: true},
     {id: "5", n: "청바지", p: 30000, q: 10, c: "blue", createdAt: new Date(), modifiedAt: new Date(), s: true},
   ],
-  colorCounts: [],
 
   setProducts: (data) => set({ products: data }),
-  setColorCounts: (data) => set({ colorCounts: data }),
 }));
 
 export default useProductStore;

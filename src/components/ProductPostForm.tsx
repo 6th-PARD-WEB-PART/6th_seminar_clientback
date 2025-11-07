@@ -17,7 +17,7 @@ export default function ProductPostForm() {
 
       // TODO: POST API에 보낼 Payload(Request Body) 만들기
 
-      // TODO: 상품 POST API 함수 호출하기
+      // TODO: 상품 POST API 함수 호출하기 (lib/productApi.ts 내부에 구현된 함수 활용)
 
       alert(`상품 등록이 될랑말랑: ${name} ${price} ${quantity} ${color}`); // TODO: 성공 시, 주석 처리하기
     } catch (err) {
@@ -27,7 +27,7 @@ export default function ProductPostForm() {
 
   return (
     <div className="m-6 p-4 border border-zinc-200 rounded-lg bg-white shadow-md">
-      <h2 className="text-lg font-semibold mb-2">새 상품 등록 &lt;POST&gt;</h2>
+      <h2 className="text-lg font-semibold mb-2">새 상품 등록</h2>
       <div className="flex flex-row gap-2">
         <input
           type="text"

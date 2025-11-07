@@ -15,9 +15,9 @@ export default function ProductEditForm() {
     try {
       // TODO: PATCH API에 보낼 Payload(Request Body) 만들기
 
-      // TODO: 색상 별 상품 개수 PATCH API 함수 호출
+      // TODO: 색상 별 상품 개수 PATCH API 함수 호출 (lib/productApi.ts 내부에 구현된 함수 활용)
 
-      alert(`색상 별 상품 수정이 될랑말랑: ${color} ${quantity}`);  // TODO: 주석 처리 하기
+      alert(`색상 별 상품 수정이 될랑말랑: ${color} ${quantity}`); // TODO: 주석 처리 하기
     } catch (err) {
       console.error(err);
     }
@@ -25,9 +25,7 @@ export default function ProductEditForm() {
 
   return (
     <div className="mt-6 p-4 border border-slate-200 rounded-lg bg-slate-100 shadow-md">
-      <h2 className="text-lg font-semibold mb-2">
-        색상 별 상품 재고 관리 &lt;PATCH&gt;
-      </h2>
+      <h2 className="text-lg font-semibold mb-2">색상 별 상품 재고 관리</h2>
       <div className="flex flex-row gap-2">
         {/* 색상 선택 드롭다운 */}
         <select
