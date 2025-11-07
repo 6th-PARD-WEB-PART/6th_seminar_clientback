@@ -3,7 +3,7 @@
 import ReactConfetti from "react-confetti";
 import { useEffect, useState } from "react";
 import ProductTable from "@/components/ProductTable";
-import ProductEditForm from "@/components/ProductEditForm";
+import ProductPostForm from "@/components/ProductPostForm";
 
 export default function Home() {
   const [showConfetti, setShowConfetti] = useState<boolean>(true);
@@ -41,7 +41,7 @@ export default function Home() {
       <ProductTable />
 
       {/* 새로운 상품 재고 등록 폼 */}
-      <ProductEditForm />
+      <ProductPostForm />
     </div>
   );
 }
