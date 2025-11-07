@@ -1,0 +1,1 @@
+export const productColors = ["red", "green", "blue"];

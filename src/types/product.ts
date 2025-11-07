@@ -1,26 +1,22 @@
-export type ProductColor = 'red' | 'green' | 'blue';
+// TODO: 서버 파디와 함께 결정한 API 명세서에 맞게 타입 수정하기
 
 export interface Product {
-  productName: string;
-  price: number;
-  total_count: number;
-  color: ProductColor;
-  createdAt: string; // '15:32:28'
-  modifiedAt: string; // '16:10:07'
-  sellable: boolean;
+  id: string;
+  n: string;
+  p: number;
+  q: number;
+  c: string;
+  createdAt: Date;
+  modifiedAt: Date;
+  s: boolean;
 }
 
 export interface SelectedProduct {
-  productName: string;
-  price: number;
-  total_count: number;
-  color: ProductColor;
-  createAt: string; // 명세서의 'createAt' 필드
-  modifiedAt: string;
-  sellable: boolean;
+  // CHALLENGE TODO: 가장 최근에 상세 페이지를 방문한 상태의 타입 정의하기
+  something: string;
 }
 
 export interface ColorCount {
-  color: ProductColor;
-  total_count: number;
+  c: string;
+  q: number;
 }

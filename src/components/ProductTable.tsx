@@ -1,44 +1,42 @@
+import useProductStore from "@/stores/useProductStore";
 import Link from "next/link";
 
-const products = [
-  { productName: "노트북", price: 1200000, total_count: 5, color: "실버", sellable: true },
-  { productName: "키보드", price: 80000, total_count: 20, color: "블랙", sellable: true },
-  { productName: "마우스", price: 45000, total_count: 0, color: "화이트", sellable: false },
-];
-
 export default function ProductTable() {
+  // 전역상태관리에서 임시 데이터로 처음 상태를 초기화하도록 구현해둠
+  const { products } = useProductStore(); // TODO: 전체 GET 임시 데이터 호출 코드 지우기
+
   return (
-    <table className="w-full max-w-xl border-collapse border border-zinc-200 shadow-md">
-      <thead className="bg-gray-100">
+    <table className="w-full max-w-5xl border-collapse border border-skt-200 shadow-md m-5">
+      <thead className="bg-sky-100">
         <tr>
-          <th className="p-3 border border-zinc-200">상품명</th>
-          <th className="p-3 border border-zinc-200">가격</th>
-          <th className="p-3 border border-zinc-200">수량</th>
-          <th className="p-3 border border-zinc-200">색상</th>
-          <th className="p-3 border border-zinc-200">판매 가능</th>
-          <th className="p-3 border border-zinc-200">수정</th>
+          <th className="p-3 border border-sky-200">상품명</th>
+          <th className="p-3 border border-sky-200">색상</th>
+          <th className="p-3 border border-sky-200">가격</th>
+          <th className="p-3 border border-sky-200">상품 수량</th>
+          <th className="p-3 border border-sky-200">판매 가능</th>
+          <th className="p-3 border border-sky-200">제품 상세</th>
         </tr>
       </thead>
       <tbody>
         {products.map((p, idx) => (
-          <tr key={idx} className="text-center hover:bg-gray-50">
-            <td className="p-2 border border-zinc-200">{p.productName}</td>
-            <td className="p-2 border border-zinc-200">{p.price.toLocaleString()}원</td>
-            <td className="p-2 border border-zinc-200">{p.total_count}</td>
-            <td className="p-2 border border-zinc-200">{p.color}</td>
-            <td className="p-2 border border-zinc-200">
-              {p.sellable ? (
+          <tr key={idx} className="text-center">
+            <td className="p-2 bg-sky-50 border border-sky-200">{p.n}</td>
+            <td className="p-2 bg-sky-50 border border-sky-200">{p.c === "red" ? "빨강" : p.c === "green" ? "초록" : "파랑"}</td>
+            <td className="p-2 border border-sky-200">{p.p.toLocaleString()}원</td>
+            <td className="p-2 border border-sky-200">{p.q}</td>
+            <td className="p-2 border border-sky-200">
+              {p.s ? (
                 <span className="text-green-600 font-semibold">가능</span>
               ) : (
                 <span className="text-red-500 font-semibold">불가</span>
               )}
             </td>
-            <td className="p-2 border border-zinc-200">
+            <td className="p-2 border border-sky-200">
               <Link
-                href={`/products/${idx + 1}`} // TODO: 실제 productId로 교체
+                href={`/detail/${p.id}`}
                 className="text-blue-600 hover:underline"
               >
-                수정하기
+                상세 페이지
               </Link>
             </td>
           </tr>

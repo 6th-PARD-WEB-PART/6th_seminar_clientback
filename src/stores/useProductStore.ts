@@ -1,31 +1,32 @@
-import { ColorCount, Product, SelectedProduct } from '@/types/product';
-import { create } from 'zustand';
+import { ColorCount, Product } from "@/types/product";
+import { create } from "zustand";
 
-// Zustand 스토어가 가질 상태(state)와 상태를 변경할 함수(actions)의 타입 정의
+// CHALLENGE TODO: 가장 최근에 상세 페이지를 방문한 상품의 정보를 저장하는 상태 만들기 (Recently Selected Product)
+// -> 어느 타입을 지정해야 할 지 잘 생각해보기
+
 export type GuideState = {
   // 상태 (State)
   products: Product[];
-  selectedProduct: SelectedProduct | null;
   colorCounts: ColorCount[];
-  
+
   // 액션 (Actions)
   setProducts: (data: Product[]) => void;
-  setSelectedProduct: (data: SelectedProduct) => void;
   setColorCounts: (data: ColorCount[]) => void;
-  clearSelectedProduct: () => void;
 };
 
-// TODO: (Zustand) create<GuideState>를 사용하여 타입이 적용된 스토어 생성
 export const useProductStore = create<GuideState>((set) => ({
-  products: [],
-  selectedProduct: null,
+  // 전체 GET 임시 데이터
+  products: [
+    {id: "1", n: "셔츠", p: 20000, q: 10, c: "red", createdAt: new Date(), modifiedAt: new Date(), s: true},
+    {id: "2", n: "셔츠", p: 20000, q: 3, c: "green", createdAt: new Date(), modifiedAt: new Date(), s: true},
+    {id: "3", n: "셔츠", p: 20000, q: 0, c: "blue", createdAt: new Date(), modifiedAt: new Date(), s: false},
+    {id: "4", n: "필통", p: 5000, q: 10, c: "green", createdAt: new Date(), modifiedAt: new Date(), s: true},
+    {id: "5", n: "청바지", p: 30000, q: 10, c: "blue", createdAt: new Date(), modifiedAt: new Date(), s: true},
+  ],
   colorCounts: [],
-  
-  // TODO: (Zustand) API 응답(data)으로 상태를 업데이트하는 함수들
+
   setProducts: (data) => set({ products: data }),
-  setSelectedProduct: (data) => set({ selectedProduct: data }),
   setColorCounts: (data) => set({ colorCounts: data }),
-  clearSelectedProduct: () => set({ selectedProduct: null }),
 }));
 
 export default useProductStore;
