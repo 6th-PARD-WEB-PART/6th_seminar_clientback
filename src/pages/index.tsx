@@ -124,7 +124,7 @@ export default function Home() {
 
       <button
         onClick={handleRecentlySelected}
-        className="flex items-center justify-center bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600"
+        className="flex items-center justify-center bg-purple-500 text-white mb-10 px-4 py-2 rounded-lg hover:bg-purple-600"
       >
         가장 최근에 상세 페이지를 확인한 상품명
       </button>
