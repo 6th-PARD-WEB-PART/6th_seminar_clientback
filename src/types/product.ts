@@ -13,6 +13,11 @@ export interface Product {
 }
 
 export interface SelectedProduct {
-  // CHALLENGE TODO: 가장 최근에 상세 페이지를 방문한 상태의 타입 정의하기
+  // CHALLENGE1 TODO: 가장 최근에 상세 페이지를 방문한 상태의 타입 정의하기
   something: string;
+}
+
+export interface ColorQuantity {
+  c: string;
+  q: number;
 }

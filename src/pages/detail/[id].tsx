@@ -23,7 +23,7 @@ export default function DetailPage() {
 
       // TODO: response 데이터 product 상태에 저장하기
 
-      // CHALLENGE TODO: Recently Selected Product 전역 상태 갱신하기
+      // CHALLENGE1 TODO: Recently Selected Product 전역 상태 갱신하기
     };
 
     fetchProduct();

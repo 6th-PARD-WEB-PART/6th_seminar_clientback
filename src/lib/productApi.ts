@@ -13,6 +13,8 @@ if (!API_BASE_URL) {
 export const getAllProductsApi = async () => {
   try {
     const response = await axios.get(``);
+
+    return response.data;   // 명세서 확인해서 data 안에 뭐가 더 있는지 잘 확인하기!!
   } catch (err) {
     console.error("데이터 불러오기 실패", err);
     return [];
@@ -21,6 +23,9 @@ export const getAllProductsApi = async () => {
 
 // TODO: axios로 상품 상세 GET API 요청 코드 작성하기 (백틱 문법: `${변수}` 잘 활용해보기!)
 export const getProductByIdApi = async () => {};
+
+// TODO: axios로 특정 상품의 색깔 별 재고 현황 GET API 요청 코드 작성하기
+export const getQuantityByColorApi = async () => {};
 
 // TODO: axios로 새로운 상품 등록 POST API 요청 코드 작성하기
 export const postProductApi = async () => {};
