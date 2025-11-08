@@ -81,10 +81,10 @@ export default function Home() {
         <ProductPostForm />
       ) : 
       // CHALLENGE2 TODO: 색상 별 전체 상품 재고 조회 코드 주석 해제하기
-      // actionType === "color" ? (
-      //   // 색상 별 전체 상품 재고 조회 - 같은 색인 경우 상품명이 다른 경우에도 count에 합산됨
-      //   <ProductColorCount />
-      // ) : 
+      actionType === "color" ? (
+        // 색상 별 전체 상품 재고 조회 - 같은 색인 경우 상품명이 다른 경우에도 count에 합산됨
+        <ProductColorCount />
+      ) : 
       (
         // 색상 별 상품 재고 수정
         <ProductEditForm />
@@ -99,12 +99,12 @@ export default function Home() {
           새 상품 등록
         </button>
         {/* CHALLENGE2 TODO: 색상 별 전체 상품 재고 조회 코드 주석 해제하기 */}
-        {/* <button
+        <button
           onClick={() => setActionType("color")}
           className="px-4 py-2 rounded-lg bg-teal-500 text-white hover:bg-teal-600 transition"
         >
           색상별 재고 조회
-        </button> */}
+        </button>
         <button
           onClick={() => setActionType("edit")}
           className="px-4 py-2 rounded-lg bg-amber-500 text-white hover:bg-amber-600 transition"
