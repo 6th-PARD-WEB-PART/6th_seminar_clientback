@@ -3,13 +3,17 @@
 // 전역상태관리로 임시 데이터 불러올 때 사용하는 타입 - TODO: 안 쓸 거면 지워버리기
 export interface Product {
   id: string;
-  n: string;
-  p: number;
-  q: number;
-  c: string;
+  productName: string;
+  price: number;
+  total_count: number;
+  color: string;
   createdAt: Date;
   modifiedAt: Date;
-  s: boolean;
+  sellable: boolean;
+}
+
+export interface ProductRequest {
+  readOneProductDtoList: Product[];
 }
 
 export interface SelectedProduct {
