@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { productColors } from "@/constants/productColors";
+import { postProductApi } from "@/lib/productApi";
 
 export default function ProductPostForm() {
   const [name, setName] = useState("");
@@ -16,8 +17,15 @@ export default function ProductPostForm() {
       if (!isFormValid) return;
 
       // TODO: POST API에 보낼 Payload(Request Body) 만들기
+      const payload = {
+        productName: name,
+        price: Number(price),
+        total_count: Number(quantity),
+        color: color,
+      };
 
       // TODO: 상품 POST API 함수 호출하기 (lib/productApi.ts 내부에 구현된 함수 활용)
+      await postProductApi(payload);
 
       alert(`상품 등록이 될랑말랑: ${name} ${price} ${quantity} ${color}`); // TODO: 성공 시, 주석 처리하기
     } catch (err) {

@@ -12,8 +12,15 @@ export interface Product {
   sellable: boolean;
 }
 
-export interface ProductRequest {
+export interface ProductResponse {
   readOneProductDtoList: Product[];
+}
+
+export interface ProductRequest {
+  productName: string;
+  price: number;
+  total_count: number;
+  color: string;
 }
 
 export interface SelectedProduct {

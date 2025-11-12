@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ENDPOINT } from "./endPoint";
-import { ProductRequest } from "@/types/product";
+import { ProductRequest, ProductResponse } from "@/types/product";
 
 // TODO: .env 또는 .env.local 파일에 서버 주소 추가하기
 // -> 막판에 코드 다 짜고 연결할 즈음에 서버 파디한테 요청하면 줄 거임
@@ -14,7 +14,7 @@ if (!API_BASE_URL) {
 // TODO: axios로 전체 상품 GET API 요청 코드 작성하기
 export const getAllProductsApi = async () => {
   try {
-    const response = await axios.get<ProductRequest>(`${API_BASE_URL}${ENDPOINT.PRODUCT}`);
+    const response = await axios.get<ProductResponse>(`${API_BASE_URL}${ENDPOINT.PRODUCT}`);
 
     return response.data.readOneProductDtoList;   // 명세서 확인해서 data 안에 뭐가 더 있는지 잘 확인하기!!
   } catch (err) {
@@ -30,7 +30,16 @@ export const getProductByIdApi = async () => {};
 export const getQuantityByColorApi = async () => {};
 
 // TODO: axios로 새로운 상품 등록 POST API 요청 코드 작성하기
-export const postProductApi = async () => {};
+export const postProductApi = async (data: ProductRequest) => {
+  try {
+    const response = await axios.post<ProductRequest>(`${API_BASE_URL}${ENDPOINT.PRODUCT}`, data);
+
+    return response.data;
+  } catch (err) {
+    console.error("상품 등록 실패", err);
+    throw err;
+  }
+};
 
 // TODO: axios로 색상 별 상품 개수 UPDATE API 요청 코드 작성하기 (백틱 문법: `${변수}` 잘 활용해보기!)
 export const updateQuantityByColor = async () => {};
