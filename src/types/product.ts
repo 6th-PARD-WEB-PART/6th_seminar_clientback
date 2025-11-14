@@ -1,6 +1,6 @@
 // TODO: 서버 파디와 함께 결정한 API 명세서에 맞게 Request/Response 타입 정의하기
 
-// 전역상태관리로 임시 데이터 불러올 때 사용하는 타입 - TODO: 안 쓸 거면 지워버리기
+// 전역상태관리로 임시 데이터 불러올 때 사용하는 타입 - DONE: 안 쓸 거면 지워버리기
 export interface Product {
   id: string;
   productName: string;
@@ -28,7 +28,8 @@ export interface SelectedProduct {
   something: string;
 }
 
-export interface ColorQuantity {
-  c: string;
-  q: number;
+// DONE: 색상 별 재고 PATCH API 요청 타입 정의하기
+export interface ProductColorRequest {
+  color: string;
+  count: number;
 }

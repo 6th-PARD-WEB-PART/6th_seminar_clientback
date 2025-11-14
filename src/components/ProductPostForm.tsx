@@ -16,7 +16,7 @@ export default function ProductPostForm() {
     try {
       if (!isFormValid) return;
 
-      // TODO: POST API에 보낼 Payload(Request Body) 만들기
+      // DONE: POST API에 보낼 Payload(Request Body) 만들기
       const payload = {
         productName: name,
         price: Number(price),
@@ -24,10 +24,10 @@ export default function ProductPostForm() {
         color: color,
       };
 
-      // TODO: 상품 POST API 함수 호출하기 (lib/productApi.ts 내부에 구현된 함수 활용)
-      await postProductApi(payload);
+      // DONE: 상품 POST API 함수 호출하기 (lib/productApi.ts 내부에 구현된 함수 활용)
+      // await postProductApi(payload);
 
-      alert(`상품 등록이 될랑말랑: ${name} ${price} ${quantity} ${color}`); // TODO: 성공 시, 주석 처리하기
+      // alert(`상품 등록이 될랑말랑: ${name} ${price} ${quantity} ${color}`); // DONE: 성공 시, 주석 처리하기
     } catch (err) {
       console.error(err);
     }

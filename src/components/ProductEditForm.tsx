@@ -1,6 +1,7 @@
 "use client";
 
 import { productColors } from "@/constants/productColors";
+import { updateQuantityByColor } from "@/lib/productApi";
 import { useState } from "react";
 
 export default function ProductEditForm() {
@@ -13,11 +14,16 @@ export default function ProductEditForm() {
     if (!isFormValid) return;
 
     try {
-      // TODO: PATCH API에 보낼 Payload(Request Body) 만들기
+      // DONE: PATCH API에 보낼 Payload(Request Body) 만들기
+      const payload = {
+        color: color,
+        count: Number(quantity),
+      }
 
-      // TODO: 색상 별 상품 개수 PATCH API 함수 호출 (lib/productApi.ts 내부에 구현된 함수 활용)
+      // DONE: 색상 별 상품 개수 PATCH API 함수 호출 (lib/productApi.ts 내부에 구현된 함수 활용)
+      await updateQuantityByColor(payload);
 
-      alert(`색상 별 상품 수정이 될랑말랑: ${color} ${quantity}`); // TODO: 주석 처리 하기
+      // alert(`색상 별 상품 수정이 될랑말랑: ${color} ${quantity}`); // DONE: 주석 처리 하기
     } catch (err) {
       console.error(err);
     }
