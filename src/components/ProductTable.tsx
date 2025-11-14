@@ -6,7 +6,8 @@ import { useState } from "react";
 
 export default function ProductTable() {
   // 전역상태관리에서 임시 데이터로 처음 상태를 초기화하도록 구현해둠
-  // const { products } = useProductStore(); // TODO: 전체 GET 임시 데이터 호출 코드 지우기
+  // const { products } = useProductStore(); // DONE: 전체 GET 임시 데이터 호출 코드 지우기
+  
   const [products, setProducts] = useState<Product[]>([]);
 
   const fetchProducts = async () => {
