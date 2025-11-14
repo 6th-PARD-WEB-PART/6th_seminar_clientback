@@ -6,19 +6,24 @@ import ProductTable from "@/components/ProductTable";
 import ProductPostForm from "@/components/ProductPostForm";
 import ProductEditForm from "@/components/ProductEditForm";
 import ProductColorCount from "@/components/ProductColorCount";
+import useProductStore from "@/stores/useProductStore";
 
 export default function Home() {
   const [showConfetti, setShowConfetti] = useState<boolean>(true);
   const [actionType, setActionType] = useState<string>("");
 
-  const handleRecentlySelected = () => {
-    // CHALLENGE1 TODO: 전역으로 관리되고 있는 Recently Selected Product 내용을 콘솔창에 띄우기
+  const { recentlySelectedProduct } = useProductStore();
 
-    alert(
-      "이건 CHALLENGE TODO! 통신 코드 다 짜고 맨 마지막에 시간 남으면 하셈!"
-    );
+  const handleRecentlySelected = () => {
+    // CHALLENGE1 DONE: 전역으로 관리되고 있는 Recently Selected Product 내용을 콘솔창에 띄우기
+
+    // alert(
+    //   "이건 CHALLENGE TODO! 통신 코드 다 짜고 맨 마지막에 시간 남으면 하셈!"
+    // );
+
     console.log(
-      "여기에 전역 상태 관리되고 있는 가장 최근에 상세 페이지를 확인한 상품의 정보가 뜨도록 하기!!"
+      // "여기에 전역 상태 관리되고 있는 가장 최근에 상세 페이지를 확인한 상품의 정보가 뜨도록 하기!!"
+      "전영 상태 관리되고 있는 가장 최근에 상세 페이지를 확인한 상품 정보:", recentlySelectedProduct
     );
   };
 
@@ -98,7 +103,7 @@ export default function Home() {
         >
           새 상품 등록
         </button>
-        {/* CHALLENGE2 TODO: 색상 별 전체 상품 재고 조회 코드 주석 해제하기 */}
+        {/* CHALLENGE2 DONE: 색상 별 전체 상품 재고 조회 코드 주석 해제하기 */}
         <button
           onClick={() => setActionType("color")}
           className="px-4 py-2 rounded-lg bg-teal-500 text-white hover:bg-teal-600 transition"

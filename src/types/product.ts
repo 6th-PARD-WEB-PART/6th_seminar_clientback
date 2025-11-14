@@ -38,6 +38,6 @@ export interface ProductColorCountResponse {
 }
 
 export interface SelectedProduct {
-  // CHALLENGE1 TODO: 가장 최근에 상세 페이지를 방문한 상태의 타입 정의하기
+  // CHALLENGE1 DONE: 가장 최근에 상세 페이지를 방문한 상태의 타입 정의하기 => 안해도 됐었음! Product 타입 재활용 가능
   something: string;
 }

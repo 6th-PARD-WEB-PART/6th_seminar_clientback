@@ -1,5 +1,6 @@
 // import useProductStore from "@/stores/useProductStore";
 import { getProductByIdApi } from "@/lib/productApi";
+import useProductStore from "@/stores/useProductStore";
 import { Product } from "@/types/product";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -8,6 +9,8 @@ import { useEffect, useState } from "react";
 export default function DetailPage() {
   const router = useRouter();
   const { id } = router.query;
+
+  const {setRecentlySelectedProduct} = useProductStore();
 
   const [product, setProduct] = useState<Product | null>(null);
 
@@ -34,7 +37,8 @@ export default function DetailPage() {
       // DONE: 상품 ID를 가지고 상품 상세 GET API 함수 호출하기 (lib/productApi.ts 내부에 구현된 함수 활용)
       fetchProductDetail(id as string);      
 
-      // CHALLENGE1 TODO: Recently Selected Product 전역 상태 갱신하기
+      // CHALLENGE1 DONE: Recently Selected Product 전역 상태 갱신하기
+      setRecentlySelectedProduct(product as Product);
     };
 
     fetchProduct();

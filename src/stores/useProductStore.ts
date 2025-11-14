@@ -1,17 +1,19 @@
-import { ProductColorRequest } from "@/types/product";
+import { Product, ProductColorRequest } from "@/types/product";
 import { create } from "zustand";
 
-// CHALLENGE1 TODO: 가장 최근에 상세 페이지를 방문한 상품의 정보를 저장하는 상태 만들기 (Recently Selected Product)
+// CHALLENGE1 DONE: 가장 최근에 상세 페이지를 방문한 상품의 정보를 저장하는 상태 만들기 (Recently Selected Product)
 // -> 어느 타입을 지정해야 할 지 잘 생각해보기
 
 export type GuideState = {
   // 상태 (State)
   // products: Product[];
-  colorQuantities?: ProductColorRequest[]; // 색상 별 재고 현황 상태 추가하기
+  // colorQuantities?: ProductColorRequest[]; // 색상 별 재고 현황 상태 추가하기
+  recentlySelectedProduct?: Product;
 
   // 액션 (Actions)
   // setProducts: (data: Product[]) => void;
   // colorQuantity?: (data: ColorQuantity[]) => void;
+  setRecentlySelectedProduct: (data: Product) => void;
 };
 
 export const useProductStore = create<GuideState>((set) => ({
@@ -31,7 +33,19 @@ export const useProductStore = create<GuideState>((set) => ({
   //   { c: "blue", q: 0 },
   // ],
 
+  recentlySelectedProduct: {
+    id: "",
+    productName: "",
+    price: 0,
+    total_count: 0,
+    color: "",
+    createdAt: new Date(),
+    modifiedAt: new Date(),
+    sellable: false,
+  },
+
   // setProducts: (data) => set({ products: data }),
+  setRecentlySelectedProduct: (data) => set({ recentlySelectedProduct: data }),
 }));
 
 export default useProductStore;
