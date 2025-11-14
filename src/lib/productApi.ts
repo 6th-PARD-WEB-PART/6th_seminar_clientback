@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ENDPOINT } from "./endPoint";
-import { Product, ProductColorRequest, ProductRequest, ProductResponse } from "@/types/product";
+import { Product, ProductColorCountResponse, ProductColorRequest, ProductRequest, ProductResponse } from "@/types/product";
 
 // TODO: .env 또는 .env.local 파일에 서버 주소 추가하기
 // -> 막판에 코드 다 짜고 연결할 즈음에 서버 파디한테 요청하면 줄 거임
@@ -35,8 +35,17 @@ export const getProductByIdApi = async (id: string) => {
   }
 };
 
-// TODO: axios로 특정 상품의 색깔 별 재고 현황 GET API 요청 코드 작성하기
-export const getQuantityByColorApi = async () => {};
+// DONE: axios로 특정 상품의 색깔 별 재고 현황 GET API 요청 코드 작성하기
+export const getQuantityByColorApi = async () => {
+  try {
+    const response = await axios.get<ProductColorCountResponse>(`${API_BASE_URL}${ENDPOINT.PRODUCT}/allColorCount`);
+
+    return response.data;
+  } catch (err) {
+    console.error("색상 별 재고 현황 불러오기 실패", err);
+    throw err;
+  }
+};
 
 // DONE: axios로 새로운 상품 등록 POST API 요청 코드 작성하기
 export const postProductApi = async (data: ProductRequest) => {

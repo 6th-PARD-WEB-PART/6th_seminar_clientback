@@ -80,7 +80,7 @@ export default function Home() {
         // 새로운 상품 재고 등록 폼
         <ProductPostForm />
       ) : 
-      // CHALLENGE2 TODO: 색상 별 전체 상품 재고 조회 코드 주석 해제하기
+      // CHALLENGE2 DONE: 색상 별 전체 상품 재고 조회 코드 주석 해제하기
       actionType === "color" ? (
         // 색상 별 전체 상품 재고 조회 - 같은 색인 경우 상품명이 다른 경우에도 count에 합산됨
         <ProductColorCount />

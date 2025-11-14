@@ -23,13 +23,21 @@ export interface ProductRequest {
   color: string;
 }
 
-export interface SelectedProduct {
-  // CHALLENGE1 TODO: 가장 최근에 상세 페이지를 방문한 상태의 타입 정의하기
-  something: string;
-}
-
 // DONE: 색상 별 재고 PATCH API 요청 타입 정의하기
 export interface ProductColorRequest {
   color: string;
   count: number;
+}
+
+// DONE: 전체 상품 색깔별 수량 GET API 응답 타입 정의하기
+export interface ProductColorCountResponse {
+  colorCountDtoList: {
+    color: string;
+    total_count: number;
+  }[]; 
+}
+
+export interface SelectedProduct {
+  // CHALLENGE1 TODO: 가장 최근에 상세 페이지를 방문한 상태의 타입 정의하기
+  something: string;
 }
